@@ -1,5 +1,5 @@
 import colors from "@/constants/Colors";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function Login() {
   return (
@@ -10,6 +10,26 @@ export default function Login() {
           <Text style={{ color: colors.green }}>App</Text>
         </Text>
         <Text style={styles.slogan}>O futuro da programação</Text>
+      </View>
+
+      <View style={styles.form}>
+        <View>
+          <Text style={styles.label}>Email</Text>
+          <TextInput placeholder="Digite seu email" style={styles.input} />
+        </View>
+
+        <View>
+          <Text style={styles.label}>Senha</Text>
+          <TextInput
+            placeholder="Digite sua senha"
+            style={styles.input}
+            secureTextEntry
+          />
+        </View>
+
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -35,5 +55,38 @@ const styles = StyleSheet.create({
     fontSize: 34,
     color: colors.white,
     marginBottom: 34,
+  },
+  form: {
+    flex: 1,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    paddingTop: 24,
+    paddingLeft: 14,
+    paddingRight: 14,
+  },
+  label: {
+    marginBottom: 5,
+    color: colors.zinc,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: colors.gray,
+    borderRadius: 8,
+    marginBottom: 16,
+    paddingHorizontal: 8,
+    paddingVertical: 14,
+  },
+  button: {
+    backgroundColor: colors.green,
+    paddingVertical: 14,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    width: "100%",
+  },
+  buttonText: {
+    fontWeight: "bold",
+    color: colors.zinc,
   },
 });
